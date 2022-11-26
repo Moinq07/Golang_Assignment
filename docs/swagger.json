@@ -1,0 +1,107 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a Service for Managing Projects",
+        "title": "Projects API",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/projects": {
+            "get": {
+                "description": "Get All Projects based on the request",
+                "responses": {}
+            }
+        },
+        "/projects/create": {
+            "post": {
+                "description": "Creates Projects \u0026 Returns a Project based on the request",
+                "parameters": [
+                    {
+                        "description": "Create Project Request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models._Project"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/projects/{id}": {
+            "get": {
+                "description": "Get Projects by ID based on the request",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Get Projects by ID Request",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Delete Projects based on the request",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Delete Project Request",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "patch": {
+                "description": "Update Projects based on the request",
+                "parameters": [
+                    {
+                        "description": "Update Project Request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models._Project"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Update Project Request",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "models._Project": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

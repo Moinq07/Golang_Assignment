@@ -1,0 +1,72 @@
+basePath: /
+definitions:
+  models._Projects:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a Service for Managing Projects
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Projects API
+  version: "1.0"
+paths:
+  /projects:
+    get:
+      description: Get All Projects based on the request
+      responses: {}
+  /projects/{id}:
+    delete:
+      description: Delete Projects based on the request
+      parameters:
+      - description: Delete Project Request
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+    get:
+      description: Get Projects by ID based on the request
+      parameters:
+      - description: Get Projects by ID Request
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+    patch:
+      description: Update Projects based on the request
+      parameters:
+      - description: Update Project Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models._Project'
+      - description: Update Project Request
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses: {}
+  /projects/create:
+    post:
+      description: Creates Projects & Returns a Project based on the request
+      parameters:
+      - description: Create Project Request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/models._Project'
+      responses: {}
+swagger: "2.0"
